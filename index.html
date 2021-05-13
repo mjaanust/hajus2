@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Hajus2</title>
+</head>
+<style>
+      body {
+         background: #f0f5f5;
+         padding: 5% 0;
+      }
+
+      .video-page {
+         position: relative;
+         display: block;
+         margin: 0 auto;
+         width: 500px;
+         height: 500px;
+      }
+      video {
+         background: black;
+         border: 1px solid gray;
+      }
+      #localVideo {
+         width: 150px;
+         height: 150px;
+         position: absolute;
+         top: 15px;
+         right: 15px;
+      }
+
+      #remoteVideo {
+         width: 500px;
+         height: 500px;
+      }
+
+
+
+
+</style>
+
+<body>
+<div id="videoPage" class="video-page">
+    <video id="remoteVideo" autoplay="true" muted="muted"></video>
+    <video id="localVideo" autoplay="true" muted="muted"></video>
+    <button id="showVideo" class="btn btn-success">Open camera</button>
+    <button type="button" id="findPeer" class="btn btn-success" onclick='createOffer()' disabled>Find peer</button>
+    <button id="record" class="btn btn-danger" onclick='stopRecording()' disabled>Stop Recording</button>
+    <button type="button" class="btn btn-success" onclick='getVideos()'>Get videos</button>
+    <div style="padding:5%;visibility:hidden;" id="serverVideosBlock">
+        <h4 class="mb-3">Videos from server: </h4>
+        <div class="list-group" id="videosList">
+        </div>
+        <div style="padding:3%;">
+            <button onclick='closeVideosBlock()' class="btn btn-danger">Close</button>
+        </div>
+    </div>
+    <div style="padding:5%;visibility:hidden;" id="serverVideoBlock">
+        <h4 class="mb-3">Remote video player: </h4>
+        <video id="serverVideo" autoplay="true" muted="muted" controls="true"></video>
+        <a class="btn btn-success" id="downloadVideo">Download</a>
+        <button id="closeVideoBlock" onclick='closeVideoBlock()' class="btn btn-danger">Close video</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
